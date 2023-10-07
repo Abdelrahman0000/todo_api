@@ -19,7 +19,7 @@ mongoose
 app.get('/', async (req, res) => {
   const todos = await Todo.find();
   res.json(todos);
-  console.log(todos);
+
 });
 app.get('/:id', async (req, res) => {
 	const todo = await Todo.findById(req.params.id);
@@ -34,7 +34,7 @@ app.post('/todos/new',(req, res) => {
   const todo = new Todo({
     text: req.body.text,
   });
-  console.log('req.body.text', req.body.text);
+ 
   todo.save();
   res.json(todo);
 });
