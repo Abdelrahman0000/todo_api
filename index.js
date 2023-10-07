@@ -16,7 +16,7 @@ mongoose
   .then(() => console.log('Connected to MongoDB'))
   .catch(console.error);
 
-app.get('/todos', async (req, res) => {
+app.get('/', async (req, res) => {
   const todos = await Todo.find();
   res.json(todos);
   console.log(todos);
