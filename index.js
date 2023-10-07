@@ -21,7 +21,15 @@ app.get('/', async (req, res) => {
   res.json(todos);
   console.log(todos);
 });
+app.get('/:id', async (req, res) => {
+	const todo = await Todo.findById(req.params.id);
 
+	todo.complete = !todo.complete;
+
+	todo.save();
+
+	res.json(todo);
+})
 app.post('/todos/new',(req, res) => {
   const todo = new Todo({
     text: req.body.text,
